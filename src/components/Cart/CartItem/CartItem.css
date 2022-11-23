@@ -1,0 +1,70 @@
+
+.cart{
+    margin: 20px 16%;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.cart-row{
+    display: flex;
+    width: 100%;
+}
+
+.cart-heading{
+    border-bottom: 1px solid ;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-heading h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.image{
+    width: 20% !important;
+    align-items: center;
+}
+
+.product-title{
+    display: flex;
+}
+
+.in-stock p{
+    color: green;
+    margin: 0;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+
+.oty-to-seemore{
+    display: flex;
+}
+
+.oty-to-seemore select{
+    padding:2px 3px;
+    border-radius: 5px;
+    background-color: rgb(223, 215, 215);
+    border: none;
+    margin-right: 10px;
+}
+
+.oty-to-seemore div{
+    border-left: 1px solid rgb(215, 206, 206);
+    padding: 0px 8px;
+    color: rgb(46, 110, 136);
+}
+
+
+.cart-Bottom{
+    border-top: 1px solid lightgray;
+    height: 50px;
+}
+
+.cart-Bottom h5{
+    display: flex;
+    justify-content: flex-end;
+}

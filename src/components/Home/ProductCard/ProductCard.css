@@ -1,0 +1,15 @@
+
+.card{
+    /* width: 20%; */
+    margin: 16px;
+    text-align: center;
+}
+.card img{
+    height: 180px;
+    width: 180px;
+    margin: auto;
+}
+
+.flex-box svg{
+    margin-bottom: 4px;
+}
