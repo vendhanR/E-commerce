@@ -68,3 +68,10 @@ p{
     display: flex;
     justify-content: flex-end;
 }
+
+.sub-total{
+    margin-right: 100px;
+}
+.detail{
+    width: 350px;
+}

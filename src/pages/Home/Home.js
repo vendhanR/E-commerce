@@ -25,7 +25,10 @@ function Home(){
                <div className="row">
                {products.map((product,i)=>(
                   <div className="col-3">
-                      <ProductCard item ={product} index={i}/>
+                      <ProductCard
+                       item ={product} 
+                       index={i}
+                       />
                   </div>
                ))}
                </div>
