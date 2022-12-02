@@ -11,8 +11,9 @@ function Header(){
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
-          <a className="nav-link" href="/Cart">Cart</a>
-        </li>
+      <a href='/Cart' class="btn btn-primary">
+        cart <span class="badge text-bg-warning">4</span>
+      </a>        </li>
         <li className="nav-item">
           <a className="nav-link" href="/Register">Register</a>
         </li>

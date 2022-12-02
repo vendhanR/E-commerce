@@ -10,9 +10,12 @@ function Home(){
         fetch("https://fakestoreapi.com/products")
         .then((res)=>res.json())
         .then((res)=> {
+            res.forEach(o=>{
+                o.qty=1
+            })
             setProducts(res)
             
-            console.log(products.length);
+            // console.log(products.length);
         });
         
     },[])

@@ -1,12 +1,22 @@
 import './CartItem.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function CartItem(values) {
+function CartItem(props) {
   let [quantity,setQuantity] = useState(1)
-  let [totalPrice,setTotalPrice] = useState(values.cart.price)
+  let [totalPrice,setTotalPrice] = useState(props.cart.price)
+
+  useEffect(()=>{
+   if(quantity > 0) {
+    setTotalPrice(props.cart.price)
+    console.log(props.cart.price)
+   }
+  },[props])
+
+
+
   function handleQuantityChange(newQuantity) {
       if(newQuantity > 0) {
-        totalPrice=Number(values.cart.price)*newQuantity
+        totalPrice=Number(props.cart.price)*newQuantity
         setQuantity(newQuantity)
         setTotalPrice(totalPrice)
         
@@ -15,10 +25,10 @@ function CartItem(values) {
         setTotalPrice(totalPrice);
         setQuantity(0);
       }
-    values.updatePrice(values.cart,newQuantity)
+    props.updatePrice(props.cart,newQuantity)
   }
 
-  
+
     return(
     <div className='body'>
       <div className='cart'>
@@ -27,14 +37,14 @@ function CartItem(values) {
       </div>
       <div className='cart-row'>
         <div className='col-md-4 image'>
-          <img src={values.cart.image} className="img-fluid rounded-start" alt="..."></img>
+          <img src={props.cart.image} className="img-fluid rounded-start" alt="..."></img>
         </div>
         <div className='col-md-8 '>
               <div className='right-side'>
                 <div className='product-title'>
-                      <div className='detail'> {values.cart.detail}</div>
+                      <div className='detail'> {props.cart.title}</div>
                       <div className='ms-auto'>
-                      <button className='btn btn-danger'onClick={() => handleQuantityChange(quantity==1?0:quantity-1)}>-</button>
+                      <button className='btn btn-danger'onClick={() => handleQuantityChange(quantity===1?0:quantity-1)}>-</button>
                       <button className='btn btn-primary'>{quantity}</button>
                       <button className='btn btn-success' onClick={()=>handleQuantityChange(quantity+1)}>+</button>
                       </div>
@@ -54,7 +64,7 @@ function CartItem(values) {
                     <option>Qty:5</option>
                     <option>Qty:6</option>
                   </select> */}
-                  <button >Delete</button>
+                  <button onClick={()=>{props.delete(props.index)}}>Delete</button>
                   <div>Save For Leter</div>
                   <div>See more like this</div>
                 </div>
