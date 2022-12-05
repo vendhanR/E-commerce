@@ -1,18 +1,14 @@
+import { useContext } from 'react';
 import './ProductCard.css'
+import AppContext from '../../../context';
 
 function ProductCard(values) {
 
+  const {dispatcherEvent} =useContext(AppContext)
+
  function handleAddToCartPage() {
-   let cart = localStorage.getItem("cart")
-   if(!cart) {
-     let cartItem=[]
-     cartItem.push(values.item)
-     localStorage.setItem("cart",JSON.stringify(cartItem))
-   } else {
-     let cartItem = JSON.parse(cart)
-     cartItem.push(values.item)
-     localStorage.setItem("cart",JSON.stringify(cartItem))
-   }
+   dispatcherEvent("ADD_ITEMS",values.item)
+   values.notify()
  }
 
 

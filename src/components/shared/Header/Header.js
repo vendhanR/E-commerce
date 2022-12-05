@@ -1,6 +1,14 @@
+import { useContext } from 'react';
 import './Header.css'
+import AppContext from '../../../context';
+import { Link } from 'react-router-dom';
 
-function Header(){
+function Header(props){
+
+  const {cartItems} = useContext(AppContext)
+  
+
+
     return(
         <nav className="navbar navbar-expand-lg bg-blue">
   <div className="container-fluid">
@@ -11,9 +19,21 @@ function Header(){
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
       <li className="nav-item">
-      <a href='/Cart' class="btn btn-primary">
-        cart <span class="badge text-bg-warning">4</span>
-      </a>        </li>
+                {/* <a className="btn btn-primary" href="/cart">
+                  Cart &nbsp;
+                  {
+                    cartItems.length>0 && 
+                    <span class="badge text-bg-warning">{cartItems.length}</span>
+                  }
+                  </a> */}
+                  <Link className='btn btn-primary' to='/Cart'>
+                  Cart &nbsp;
+                  {
+                    cartItems.length>0 && 
+                    <span class="badge text-bg-warning">{cartItems.length}</span>
+                  }
+                  </Link>
+              </li>
         <li className="nav-item">
           <a className="nav-link" href="/Register">Register</a>
         </li>

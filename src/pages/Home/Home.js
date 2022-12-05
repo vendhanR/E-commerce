@@ -4,7 +4,15 @@ import Footer from "../../components/shared/Footer/Footer";
 import ProductCard from "../../components/Home/ProductCard/ProductCard";
 
 function Home(){
+
+
+
+
+
+
+
     const [products, setProducts]= useState([]);
+    const[cartItem,setCartItem] = useState(0)
 
     useEffect(()=>{
         fetch("https://fakestoreapi.com/products")
@@ -20,9 +28,19 @@ function Home(){
         
     },[])
 
+
+    function notifyCartUpdate(){
+        console.log("home is called")
+        const items = localStorage.getItem("cart");
+        if(items){
+           const cart = JSON.parse(items);
+           setCartItem(cart.length);
+        }
+    }
+
     return(
         <div>
-            <Header />
+            <Header cartItem={cartItem}/>
             <div>
                {/* <h2>{products.length}</h2> */}
                <div className="row">
@@ -31,6 +49,7 @@ function Home(){
                       <ProductCard
                        item ={product} 
                        index={i}
+                       notify={notifyCartUpdate}
                        />
                   </div>
                ))}

@@ -47,12 +47,10 @@ function Cart() {
    
    function deleteItem(index) {
         let items = CartItems
-        // localStorage.delete(items.splice(index,1))
-        // items.splice(index,1)
-        items.localStorage.splice(index,1)
-        console.log(items)
+        items.splice(index,1)
         setCartItems(items)
         updateTotalPrice(items)
+        localStorage.setItem("cart",JSON.stringify(items))
    }
 
 
